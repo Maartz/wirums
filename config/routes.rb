@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "main#index"
+  resources :discussions, only: [:index]
+  root to: 'main#index'
 end

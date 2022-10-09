@@ -11,7 +11,6 @@ class Discussion < ApplicationRecord
 
   validates :name, presence: true
 
-
   def to_param
     "#{id}-#{name.downcase.to_s[0...100]}".parameterize
   end

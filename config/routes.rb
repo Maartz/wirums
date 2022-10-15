@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :categories
   devise_for :users
   # resources :discussions, only: %i[index create new]
   resources :discussions, only: %i[index show new create edit update destroy] do

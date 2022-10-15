@@ -2,7 +2,7 @@
 
   <% if discussion.errors.any? %>
     <div id='error_explanation'>
-      <h2><%= pluralize(discussion.errors.count, "error") %> prevented this discussion from being saved: </h2>
+      <h2><%= pluralize(discussion.errors.count, 'error') %> prevented this discussion from being saved: </h2>
       <ul>
         <% discussion.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -14,6 +14,12 @@
   <div class='mb-3'>
     <%= form.label :name, class: 'form-label' %>
     <%= form.text_field :name, placeholder: 'Hey anon...', class: 'form-control' %>
+  </div>
+
+  <div class='mb-3'>
+    <%= form.label :category_id, 'Choose a category', class: 'form-label' %>
+    <%= form.collection_select :category_id, Category.sorted, :id, :name, 
+        { include_blank: 'Pick a category...'}, { autofocus: false, class: 'form-control' } %>
   </div>
 
   <div class='mb-3'>
